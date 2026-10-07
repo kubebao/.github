@@ -1,0 +1,17 @@
+baseURL = "https://kubebao.org/"
+locale = "en-US"
+title = "KubeBao"
+disableKinds = ["taxonomy", "term", "RSS", "sitemap"]
+
+[params]
+description = "Kubernetes-native lifecycle management for OpenBao. KubeBao is an independent open-source project and the home of OpenBao Operator."
+organization = "https://github.com/kubebao"
+operatorRepository = "https://github.com/dc-tec/openbao-operator"
+operatorDocumentation = "https://dc-tec.github.io/openbao-operator/"
+migrationIssue = "https://github.com/dc-tec/openbao-operator/issues/785"
+
+[outputs]
+home = ["HTML"]
+
+[minify]
+minifyOutput = true

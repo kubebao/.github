@@ -1,0 +1,375 @@
+/* Adapted from OpenBao Operator's site.css. Retains the quiet landing page,
+   palette, header, buttons, and section dividers. Removes documentation UI
+   and adds KubeBao project text, persistent mobile navigation, and tap targets. */
+:root {
+  --ink: #091a28;
+  --ink-deep: #06111a;
+  --mint: #87d6be;
+  --peach: #fdd0a4;
+  --line-dark: rgba(135, 214, 190, 0.14);
+  --header-height: 4rem;
+  font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-height) + 1.5rem);
+}
+
+body {
+  margin: 0;
+  color: #edf6f1;
+  background: var(--ink-deep);
+}
+
+a {
+  color: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+  outline: 3px solid var(--peach);
+  outline-offset: 3px;
+}
+
+::selection {
+  color: var(--ink);
+  background: var(--mint);
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 1000;
+  top: 0.75rem;
+  left: 0.75rem;
+  padding: 0.7rem 1rem;
+  color: var(--ink);
+  background: var(--peach);
+  border-radius: 0.35rem;
+  transform: translateY(-160%);
+}
+
+.skip-link:focus { transform: translateY(0); }
+
+.site-header {
+  position: sticky;
+  z-index: 60;
+  top: 0;
+  height: var(--header-height);
+  background: rgba(6, 17, 26, 0.91);
+  border-bottom: 1px solid var(--line-dark);
+  backdrop-filter: blur(18px);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  height: 100%;
+  padding: 0 clamp(1rem, 2vw, 3rem);
+  margin: 0 auto;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-height: 2.75rem;
+  color: #f5fbf8;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.brand-mark {
+  position: relative;
+  flex: none;
+  width: 2.75rem;
+  height: 2.75rem;
+  overflow: hidden;
+  background: var(--ink);
+  border-radius: 0.3rem;
+}
+
+/* Frame the logo's symbol without its wordmark; keep the source asset intact. */
+.brand-mark img {
+  position: absolute;
+  top: -1rem;
+  left: -1.125rem;
+  width: 5rem;
+  height: 5rem;
+  clip-path: inset(0 0 30% 0);
+}
+
+.brand-name {
+  font-size: 0.96rem;
+  font-weight: 760;
+  letter-spacing: -0.025em;
+}
+
+.brand-name b {
+  color: var(--mint);
+  font-weight: inherit;
+}
+
+.top-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.7rem;
+  margin-left: auto;
+}
+
+.top-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  color: rgba(237, 246, 241, 0.7);
+  font-size: 0.86rem;
+  font-weight: 650;
+  text-decoration: none;
+  transition: color 160ms ease;
+}
+
+.top-nav a:hover { color: var(--mint); }
+
+.home-main {
+  position: relative;
+  overflow: clip;
+  min-height: calc(100svh - var(--header-height));
+  background: var(--ink);
+}
+
+.home-main::after {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  background-image: url("../img/grain.svg");
+  background-size: 11rem 11rem;
+  mix-blend-mode: soft-light;
+  opacity: 0.055;
+}
+
+.home-intro,
+.home-project {
+  position: relative;
+  z-index: 1;
+  width: min(70rem, calc(100% - 3rem));
+  margin: 0 auto;
+}
+
+.home-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 18rem;
+  gap: 7rem;
+  align-items: end;
+  min-height: 25rem;
+  padding: 4.5rem 0 4rem;
+}
+
+.home-intro h1 {
+  margin: 0;
+  color: #f1f7f4;
+  font-size: clamp(2.8rem, 5.4vw, 4.15rem);
+  font-weight: 750;
+  letter-spacing: -0.065em;
+  line-height: 0.98;
+}
+
+.home-summary {
+  max-width: 31rem;
+  margin: 1.1rem 0 0;
+  color: rgba(237, 246, 241, 0.68);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  min-height: 2.9rem;
+  padding: 0.7rem 1rem;
+  font-size: 0.84rem;
+  font-weight: 740;
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: 0.38rem;
+  transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+
+.button:hover { transform: translateY(-2px); }
+
+.button-primary {
+  color: var(--ink);
+  background: var(--mint);
+}
+
+.button-primary:hover { background: #9ae2cd; }
+
+.button-secondary {
+  color: rgba(237, 246, 241, 0.84);
+  background: rgba(255, 255, 255, 0.035);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.button-secondary:hover { border-color: rgba(135, 214, 190, 0.38); }
+
+.home-current {
+  padding: 0.25rem 0 0.2rem 1.5rem;
+  border-left: 1px solid rgba(135, 214, 190, 0.18);
+}
+
+.home-current > p:first-child {
+  margin: 0 0 1.2rem;
+  color: var(--mint);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.home-current h2 {
+  margin: 0;
+  color: #eef6f2;
+  font-size: 1.18rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.home-current > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-height: 2.75rem;
+  margin-top: 0.5rem;
+  color: rgba(237, 246, 241, 0.72);
+  font-size: 0.75rem;
+  font-weight: 650;
+  text-decoration: none;
+  transition: color 160ms ease;
+}
+
+.home-current > a:hover { color: var(--mint); }
+
+.home-project {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 3rem;
+  padding: 3rem 0;
+}
+
+.home-project::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 1px;
+  pointer-events: none;
+  content: "";
+  background: linear-gradient(90deg, transparent, rgba(135, 214, 190, 0.14) 8%, rgba(135, 214, 190, 0.09) 84%, transparent);
+}
+
+.home-project > div:first-child { max-width: 38rem; }
+
+.home-contribute > div:first-child { max-width: none; }
+
+.home-project h2 {
+  margin: 0;
+  color: #eef6f2;
+  font-size: clamp(1.55rem, 2.6vw, 2.1rem);
+  letter-spacing: -0.045em;
+  line-height: 1.1;
+}
+
+.home-project div > p:last-child {
+  margin: 1rem 0 0;
+  color: rgba(237, 246, 241, 0.6);
+  font-size: 0.86rem;
+  line-height: 1.65;
+}
+
+.home-project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.4rem;
+  flex-shrink: 0;
+}
+
+.home-project-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  padding: 0.4rem 0;
+  color: rgba(237, 246, 241, 0.72);
+  font-size: 0.76rem;
+  font-weight: 650;
+  text-decoration: none;
+  transition: color 160ms ease, transform 160ms ease;
+}
+
+.home-project-links a:hover {
+  color: var(--mint);
+  transform: translateX(0.12rem);
+}
+
+@media (max-width: 56rem) {
+  .home-intro {
+    grid-template-columns: minmax(0, 1fr) 15rem;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 48rem) {
+  :root { --header-height: 3.7rem; }
+
+  .header-inner {
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .top-nav { gap: 1.25rem; }
+
+  .home-intro,
+  .home-project { width: min(100% - 2rem, 42rem); }
+
+  .home-intro {
+    grid-template-columns: 1fr;
+    gap: 2.7rem;
+    min-height: 0;
+    padding: 3.5rem 0;
+  }
+
+  .home-current { max-width: 24rem; }
+
+  .home-project {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1.4rem;
+    padding: 3rem 0;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

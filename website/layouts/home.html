@@ -1,0 +1,46 @@
+{{/* Adapted from OpenBao Operator's quiet landing layout. Replaced documentation status and version routes with KubeBao project content. */}}
+{{ define "body" }}
+<main id="main-content" class="home-main home-quiet">
+  <section class="home-intro" aria-labelledby="site-title">
+    <div class="home-intro-copy">
+      <h1 id="site-title">KubeBao</h1>
+      <p class="home-summary">Kubernetes-native lifecycle management for OpenBao.</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="{{ site.Params.operatorDocumentation }}">
+          Read the docs <span aria-hidden="true">→</span>
+        </a>
+        <a class="button button-secondary" href="{{ site.Params.operatorRepository }}">
+          OpenBao Operator on GitHub
+        </a>
+      </div>
+    </div>
+    <aside class="home-current" aria-labelledby="main-project">
+      <p>Main project</p>
+      <h2 id="main-project">OpenBao Operator</h2>
+      <a href="{{ site.Params.operatorDocumentation }}docs/get-started/">Get started <span aria-hidden="true">→</span></a>
+    </aside>
+  </section>
+
+  <section class="home-project" aria-labelledby="project-move">
+    <div>
+      <h2 id="project-move">A new project home</h2>
+      <p>OpenBao Operator is preparing to move to KubeBao.</p>
+    </div>
+    <div class="home-project-links">
+      <a href="{{ site.Params.migrationIssue }}">Read the announcement <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <section class="home-project home-contribute" aria-labelledby="contribute">
+    <div>
+      <h2 id="contribute">Contribute</h2>
+      <p>Contribute code or documentation, report an issue, or share feedback from running the operator.</p>
+    </div>
+    <div class="home-project-links">
+      <a href="{{ site.Params.operatorDocumentation }}contribute/">Contributor guide</a>
+      <a href="{{ site.Params.operatorRepository }}/issues">Issues</a>
+    </div>
+  </section>
+
+</main>
+{{ end }}
