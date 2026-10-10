@@ -8,7 +8,7 @@ This repository contains the GitHub organization profile and the Hugo landing pa
 - [website/](website/): the landing page for `kubebao.org`.
 - [.github/workflows/pages.yml](.github/workflows/pages.yml): website build checks and GitHub Pages deployment.
 
-OpenBao Operator documentation is maintained in the [operator repository](https://github.com/dc-tec/openbao-operator).
+OpenBao Operator documentation is maintained in the [operator repository](https://github.com/kubebao/openbao-operator).
 
 ## Local preview
 
